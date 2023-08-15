@@ -18,18 +18,18 @@ Create a file named `gateway.yaml` in the folder where you'll run the gateway, a
 
 ```yaml
 name: basic-tutorial # name of the gateway, it currently has no effect
-secret: [1,2,3,4] # secret key for the gateway is used to authenticate clients and agents, at least 8 bytes
-services: # list of services
+secret: [1,2,3,4]    # secret key for the gateway is used to authenticate clients and agents, at least 8 bytes
+services:            # list of services. Remove or comment-out services to turn them off.
 - !Wss # secure (TLS) websocket service
   domains: ["domain.example"] # list of domains that this service should listen to
-  listen_addr: "0.0.0.0:443" # address to listen to
-  tls_config: !Acme # TLS configuration
-    email: "email@domain.example" # email address to register with Let's Encrypt
-    challenge_type: Http01 # Http01 or TlsAlpn01 (default: Http01)
+  listen_addr: "0.0.0.0:443"  # address to listen to
+  tls_config: !Acme           # TLS configuration
+    email: "email@domain.example"                                 # email address to register with Let's Encrypt
+    challenge_type: Http01                                        # Http01 or TlsAlpn01 (default: Http01)
     directory_url: https://acme-v02.api.letsencrypt.org/directory # Let's Encrypt directory URL
 - !Ws # insecure websocket service
   domains: ["domain.example"] # list of domains that this service should listen to
-  listen_addr: "0.0.0.0:80" # address to listen to
+  listen_addr: "0.0.0.0:80"   # address to listen to
 ```
 
 :::caution
