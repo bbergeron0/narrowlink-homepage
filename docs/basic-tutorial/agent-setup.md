@@ -44,6 +44,7 @@ Now, you can configure the agent by creating a file named `agent.yaml` in the fo
 ```yaml
 gateway: gateway.domain.example:443 # address of the gateway
 token: eyJ0eX....kNHYQ_4 # token for authentication
+service_type: Wss # Or Ws, depending on the gateway configuration (default: Wss)
 ```
 
 Replace the `token` field with the obtained token, and replace the `gateway` field with the address of the gateway.
